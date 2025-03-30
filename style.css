@@ -1,59 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;800&display=swap');
-
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background: black url('bg.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: red;
-    font-family: 'Orbitron', sans-serif;
+    background-color: #1a1a1a;
+    color: #ff0000;
+    font-family: 'Courier New', Courier, monospace;
     text-align: center;
     overflow: hidden;
 }
 
 .container {
-    margin-top: 20vh;
-    text-shadow: 0 0 5px red, 0 0 10px red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 h1 {
     font-size: 3rem;
     text-transform: uppercase;
-}
-
-p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.glitch-text {
-    font-size: 2rem;
-    font-weight: 800;
-    animation: glitch 0.5s infinite alternate;
+    letter-spacing: 5px;
+    animation: glitch 2s linear infinite;
 }
 
 @keyframes glitch {
-    0% { text-shadow: 5px 5px 0 red, -5px -5px 0 black; }
-    100% { text-shadow: -5px -5px 0 red, 5px 5px 0 black; }
+    2%, 64% {
+        transform: translate(2px, 0) skew(0deg);
+    }
+    4%, 60% {
+        transform: translate(-2px, 0) skew(0deg);
+    }
+    62% {
+        transform: translate(0, 0) skew(5deg);
+    }
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: 2px solid red;
-    color: red;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: all 0.3s;
+.anime-image img {
+    width: 300px;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    margin: 20px 0;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-.btn:hover {
-    background: red;
-    color: black;
-    text-shadow: 0 0 10px black;
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icon {
+    width: 50px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2) rotate(5deg);
+    filter: brightness(1.5);
 }
